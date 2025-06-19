@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दिल्ली पब्लिक स्कूल - मेस सुविधा हेतु सर्वेक्षण फॉर्म</title>
+    <style>
+        /* --- बेसिक स्टाइलिंग --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        /* --- फॉर्म कंटेनर --- */
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #0056b3; /* DPS Blue Color */
+        }
+
+        /* --- हेडिंग्स और परिचय --- */
+        h1 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        /* --- फॉर्म ग्रुप्स और लेबल्स --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        /* --- इनपुट फील्ड्स --- */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Important for padding and width */
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* --- रेडियो और चेकबॉक्स --- */
+        .radio-group, .checkbox-group {
+            margin-top: 10px;
+        }
+        
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Makes them slightly bigger */
+        }
+
+        /* --- सुझाव सेक्शन (शुरुआत में छिपा हुआ) --- */
+        #suggestionsSection {
+            display: none;
+            border-left: 3px solid #0056b3;
+            padding-left: 20px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        /* --- सबमिट बटन --- */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 30px;
+        }
+
+        .submit-btn:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+
+        /* --- संदेश के लिए स्टाइल --- */
+        #formMessage {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+
+        /* --- मोबाइल के लिए रिस्पॉन्सिव डिज़ाइन --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>दिल्ली पब्लिक स्कूल - मेस सुविधा हेतु सर्वेक्षण फॉर्म</h1>
+        <p class="intro">
+            हमारा स्कूल, छात्रों के लिए एक स्वस्थ, स्वच्छ और पौष्टिक मेस (भोजन) सुविधा शुरू करने पर विचार कर रहा है। इस महत्वपूर्ण पहल के लिए आपका दृष्टिकोण और सुझाव हमारे लिए अत्यंत मूल्यवान हैं। कृपया इस फॉर्म को भरकर हमारी मदद करें।
+        </p>
+
+        <form name="mess-survey-form" id="messSurveyForm">
+
+            <!-- अभिभावक की जानकारी -->
+            <h2>अभिभावक की जानकारी</h2>
+            <div class="form-group">
+                <label for="parentName">अभिभावक का पूरा नाम</label>
+                <input type="text" id="parentName" name="अभिभावक का नाम" required>
+            </div>
+            <div class="form-group">
+                <label for="studentName">छात्र/छात्रा का पूरा नाम</label>
+                <input type="text" id="studentName" name="छात्र का नाम" required>
+            </div>
+            <div class="form-group">
+                <label for="classSection">कक्षा और सेक्शन</label>
+                <input type="text" id="classSection" name="कक्षा और सेक्शन" placeholder="उदा. 6-B" required>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">संपर्क नंबर</label>
+                <input type="tel" id="contactNumber" name="संपर्क नंबर" pattern="[0-9]{10}" placeholder="10 अंकों का मोबाइल नंबर" required>
+            </div>
+            <div class="form-group">
+                <label for="email">ईमेल आईडी</label>
+                <input type="email" id="email" name="ईमेल आईडी" required>
+            </div>
+
+            <!-- सहमति का प्रश्न -->
+            <h2>सहमति</h2>
+            <div class="form-group">
+                <label>क्या आप अपने बच्चे के लिए स्कूल की मेस सुविधा का लाभ उठाना चाहेंगे? (अनिवार्य)</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" id="consentYes" name="सहमति" value="हाँ" required> हाँ
+                    </label>
+                    <label>
+                        <input type="radio" id="consentNo" name="सहमति" value="नहीं"> नहीं
+                    </label>
+                </div>
+            </div>
+
+            <!-- सुझाव अनुभाग (शर्त के साथ दिखेगा) -->
+            <div id="suggestionsSection">
+                <h2>सुझाव</h2>
+                <!-- भोजन का प्रकार -->
+                <div class="form-group">
+                    <label>आप अपने बच्चे के लिए किस प्रकार का भोजन पसंद करेंगे?</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="भोजन प्रकार - पूर्ण शाकाहारी" value="हाँ"> पूर्ण शाकाहारी (Pure Vegetarian)</label>
+                        
+                        <label><input type="checkbox" name="भोजन प्रकार - जैन भोजन" value="हाँ"> जैन भोजन (बिना प्याज-लहसुन)</label>
+                    </div>
+                </div>
+
+                <!-- बजट -->
+                <div class="form-group">
+                    <label>मेस सुविधा के लिए आपका अनुमानित मासिक बजट क्या होगा?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="बजट" value="₹1500 - ₹2000"> ₹1500 - ₹2000 प्रति माह</label>
+                        <label><input type="radio" name="बजट" value="₹2001 - ₹2500"> ₹2001 - ₹2500 प्रति माह</label>
+                        <label><input type="radio" name="बजट" value="₹2501 - ₹3000"> ₹2501 - ₹3000 प्रति माह</label>
+                        <label><input type="radio" name="बजट" value="बजट कोई समस्या नहीं"> बजट कोई समस्या नहीं है, गुणवत्ता महत्वपूर्ण है</label>
+                    </div>
+                </div>
+
+                <!-- अन्य सुझाव -->
+                <div class="form-group">
+                    <label for="otherSuggestions">मेन्यू, स्वच्छता, या किसी अन्य विषय पर आपके कोई विशेष सुझाव हैं तो कृपया यहाँ लिखें।</label>
+                    <textarea id="otherSuggestions" name="अन्य सुझाव" rows="5"></textarea>
+                </div>
+            </div>
+
+            <!-- सबमिट बटन -->
+            <button type="submit" class="submit-btn" id="submitButton">फॉर्म जमा करें</button>
+            
+            <!-- सफलता या विफलता का संदेश दिखाने के लिए -->
+            <div id="formMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        // --- सशर्त अनुभाग दिखाने/छिपाने के लिए JavaScript ---
+        const consentYes = document.getElementById('consentYes');
+        const consentNo = document.getElementById('consentNo');
+        const suggestionsSection = document.getElementById('suggestionsSection');
+
+        function toggleSuggestions() {
+            if (consentYes.checked) {
+                suggestionsSection.style.display = 'block';
+            } else {
+                suggestionsSection.style.display = 'none';
+            }
+        }
+        consentYes.addEventListener('change', toggleSuggestions);
+        consentNo.addEventListener('change', toggleSuggestions);
+
+        // --- Google Sheet पर डेटा भेजने के लिए JavaScript ---
+        const form = document.getElementById('messSurveyForm');
+        const submitButton = document.getElementById('submitButton');
+        const formMessage = document.getElementById('formMessage');
+        
+        // **महत्वपूर्ण: यहां अपनी Google Apps Script वेब ऐप URL पेस्ट करें**
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzdkh0kz6FkWIcvwL05yS0jUvS6Vkhw1JrCJfS7zsTIO9W-tl9YidC4nIL2bWRD8QBWCw/exec'; 
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'जमा हो रहा है...';
+            
+            let requestBody = new FormData(form);
+
+            fetch(scriptURL, { method: 'POST', body: requestBody })
+                .then(response => {
+                    showMessage('आपका फॉर्म सफलतापूर्वक जमा हो गया है। धन्यवाद!', 'success');
+                    form.reset();
+                    suggestionsSection.style.display = 'none'; // फॉर्म रीसेट होने के बाद सुझाव सेक्शन को छिपाएं
+                })
+                .catch(error => {
+                    showMessage('एक त्रुटि हुई! कृपया बाद में पुन: प्रयास करें।', 'error');
+                    console.error('Error!', error.message);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'फॉर्म जमा करें';
+                });
+        });
+
+        function showMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = type; // 'success' or 'error'
+            formMessage.style.display = 'block';
+
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000); // 5 सेकंड बाद संदेश छिपाएं
+        }
+    </script>
+</body>
+</html>
